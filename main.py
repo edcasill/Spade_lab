@@ -2,7 +2,7 @@ import asyncio
 from spade_bdi.bdi import BDIAgent
 
 
-def main():
+async def main():
     # agent with JID, password, AgentSpeak file
     agent = BDIAgent("ranger@yourserver.com", "p@tr0ll", "behaviour_test.asl")
 

@@ -5,15 +5,15 @@
 // =================
 // The agent is at the base and his battery is fully charged
 
-location(base)
-battery_state(high)
+location(base).
+battery_state(high).
 
 // =================
 //     DESIRES
 // =================
 // When the agent born, it has the desire (!goal) to be patrolling
 
-!start_patroll
+!start_patroll.
 
 // =================
 //     INTENTIONS
