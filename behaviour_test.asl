@@ -27,9 +27,13 @@ battery_state(high).
     +location(north_zone);  // the agent is at a new location
     !check_enviroment.      // a new goal arise
 
+// if the agent gets the belief that the baterry is low
++battery_state(low) <-
+    .print("Warning: Low battery. I need to recharge").
+
 // Plan B: patrolling with low battery
 +!start_patroll : battery_state(low) <-
-    .print("Low battery. Can not be patrolling, I need to recharge").
+    .print("Low battery. Can not be patrolling").
 
 // Secondary desire plan
 +!check_enviroment <-
