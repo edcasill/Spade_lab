@@ -22,9 +22,9 @@ battery_state(high).
 
 // Plan A: patrolling with high battery
 +!start_monitor : battery_state(high) <-
-    .print("Commander online. Monitoring communications...");
+    .print("Commander: Commander online. Monitoring communications...");
 
 // Secondary desire plan
 +need_asistance[source(sender)] <-
-    .print("WARNING, message received from: ", sender).
-    .print("Sending rescue unit").
+    .print("Commander: WARNING, message received from: ", sender).
+    .print("Commander: Sending rescue unit").

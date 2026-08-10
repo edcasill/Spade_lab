@@ -22,19 +22,22 @@ battery_state(high).
 
 // Plan A: patrolling with high battery
 +!start_patroll : battery_state(high) <-
-    .print("Battery fully charged. Leaving the base and start patrolling...");
+    .print("Ranger: Battery fully charged. Leaving the base and start patrolling...");
     -location(base);        // the agent is no more at the base
     +location(north_zone);  // the agent is at a new location
     !check_enviroment.      // a new goal arise
 
 // if the agent gets the belief that the baterry is low
 +battery_state(low) <-
-    .print("Warning: Low battery. I need to recharge").
+    .print("Ranger: Warning: Low battery. I need to recharge").
+    .print("Ranger: Requesting help to the base").
+    // send message to the commander telling he needs help
+    .send(commander@localhost, tell, need_asistance).
 
 // Plan B: patrolling with low battery
 +!start_patroll : battery_state(low) <-
-    .print("Low battery. Can not be patrolling").
+    .print("Ranger: Low battery. Can not be patrolling").
 
 // Secondary desire plan
 +!check_enviroment <-
-    .print("Patrolling area... It is ok").
+    .print("Ranger: Patrolling area... It is ok").
