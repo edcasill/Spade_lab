@@ -29,10 +29,10 @@ battery_state(high).
 
 // if the agent gets the belief that the baterry is low
 +battery_state(low) <-
-    .print("Ranger: Warning: Low battery. I need to recharge").
-    .print("Ranger: Requesting help to the base").
+    .print("Ranger: Warning: Low battery. I need to recharge");
+    .print("Ranger: Requesting help to the base");
     // send message to the commander telling he needs help
-    .send(commander@localhost, tell, need_asistance).
+    .send("commander@localhost", tell, need_asistance).
 
 // Plan B: patrolling with low battery
 +!start_patroll : battery_state(low) <-

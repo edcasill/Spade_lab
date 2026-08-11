@@ -22,9 +22,13 @@ battery_state(high).
 
 // Plan A: patrolling with high battery
 +!start_monitor : battery_state(high) <-
-    .print("Commander: Commander online. Monitoring communications...");
+    .print("Commander: Commander online. Monitoring communications...").
 
 // Secondary desire plan
-+need_asistance[source(sender)] <-
-    .print("Commander: WARNING, message received from: ", sender).
+// 1. a capital letter indicates a variable
+// 2. we can add the exact name of the source # hardcode
+// 3. we can evaluate with if. 
+//    need_asistance[source(Sender)] : Sender == "ranger@localhost" <-
++need_asistance[source(Sender)] <-
+    .print("Commander: WARNING, message received from: ", Sender);
     .print("Commander: Sending rescue unit").

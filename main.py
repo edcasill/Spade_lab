@@ -28,6 +28,9 @@ async def main():
     # this keeps alive the process, so teh agent has time to reason and execute an action
     await asyncio.sleep(5)
 
+    commander.bdi.get_belief("need_asistance")
+    # await asyncio.sleep(3)
+
     # stop the agent
     await ranger.stop()
     await commander.stop()
